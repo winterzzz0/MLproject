@@ -1,0 +1,5 @@
+creating conda enviorment
+conda create -p venv python==3.8 -y
+
+activating conda enviorment
+conda activate venv/

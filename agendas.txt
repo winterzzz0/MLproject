@@ -1,0 +1,8 @@
+Agenda
+
+1- Set up the github {Repostry}
+    a) new enviorment
+    b) setup.py
+    c) requirements.txt
+
+2- Src folder and build the package
