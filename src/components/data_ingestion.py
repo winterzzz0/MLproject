@@ -10,7 +10,7 @@ from dataclasses import dataclass
 
 from src.components.data_transformation import dataTransformation
 from src.components.data_transformation import DataTransformationConfig
-
+from src.components.model_train import ModelTrainer
 
 @dataclass # Automatically generates __init__ and other methods for class variables
 class DataIngestionConfig:
@@ -57,4 +57,6 @@ if __name__ == "__main__":
     obj = DataIngestion()
     trainData,testData,_ = obj.initiateDataIngestion()
 
-    data_transformation = dataTransformation().initiateDataTransformatation(trainData,testData)
+    trainArr,testArr,_ = dataTransformation().initiateDataTransformatation(trainData,testData)
+    modelTrainer = ModelTrainer()
+    print(modelTrainer.initiatModelTrainer(trainArray=trainArr,TestArray=testArr))
