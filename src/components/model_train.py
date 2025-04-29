@@ -25,7 +25,7 @@ from src.utils import saveObject,evaluateModels
 
 @dataclass
 class modelTrainingConfig:
-    tranModelFilePath = os.path.join("artficts","model.pkl")
+    tranModelFilePath = os.path.join("artifacts","model.pkl")
 
 
 class ModelTrainer:
@@ -53,7 +53,22 @@ class ModelTrainer:
                 "Support vector regression": SVR()
             }
 
-            modelReport: dict=evaluateModels(XTrain=Xtrain,yTrain=yTrain,Xtest=Xtest,yTest=yTest,models=models)
+            params={
+                "decision tree":{
+                    "criterion":["squared_error","absolute_error"],
+                    "splitter":["best","random"],
+                    "max_depth":[5,10,15,20,13,14]
+                },
+                "Linear regression":{
+
+                },
+                "Support vector regression":{
+                    "kernel":["linear","rbf","poly"]
+                } 
+            }
+
+            modelReport: dict=evaluateModels(XTrain=Xtrain,yTrain=yTrain,Xtest=Xtest,yTest=yTest,
+                                             models=models,params=params)
 
             bestModelAcc = max(modelReport.values())
 
