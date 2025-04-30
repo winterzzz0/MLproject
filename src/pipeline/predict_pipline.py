@@ -12,8 +12,8 @@ class PredictPipline:
     
     def predict(self,features):
         try:
-            modelPath = r"D:\Cources\End-to-End ML project\src\components\artifacts\model.pkl"
-            preprocessorPath = r"D:\Cources\End-to-End ML project\src\components\artifacts\preprocessor.pkl"
+            modelPath = "./src/components/artifacts/model.pkl"
+            preprocessorPath = "./src/components/artifacts/preprocessor.pkl"
             model = loadObj(modelPath)
             preprocessor = loadObj(preprocessorPath)
             scaledData = preprocessor.transform(features)

@@ -15,6 +15,7 @@ def predictDataPoint():
     if request.method == "GET":
         return render_template("home.html")
     else:
+        
         data=CustomData(
             gender=request.form.get("gender"),
             race_ethnicity=request.form.get("ethnicity"),
@@ -32,4 +33,4 @@ def predictDataPoint():
         return render_template("home.html",res=results[0])
     
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0",debug=True)
