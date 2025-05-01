@@ -6,11 +6,11 @@ from src.pipeline.predict_pipline import CustomData,PredictPipline
 
 app = Flask(__name__)
 
-@application.route("/")
+@app.route("/")
 def index():
     return render_template("index.html")
 
-@application.route("/oredictData",methods=["GET","POST"])
+@app.route("/oredictData",methods=["GET","POST"])
 def predictDataPoint():
     if request.method == "GET":
         return render_template("home.html")
@@ -33,4 +33,4 @@ def predictDataPoint():
         return render_template("home.html",res=results[0])
     
 if __name__ == "__main__":
-    application.run(host="0.0.0.0")
+    app.run(host="0.0.0.0")
