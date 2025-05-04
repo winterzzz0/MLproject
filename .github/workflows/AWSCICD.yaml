@@ -46,10 +46,14 @@ jobs:
       
       - name: Build,tag, and push image to amazon ECR
         id: build-image
-        env: #Sets environment variables for the job e.g., ECR_REGISTRY, ECR_REPOSITORY, IMAGE_TAG
-          docker build -t $ECR_REGISTRY/&ECR_REPOSITORY:$IMAGE_TAG .
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: your-repo-name-here  # Replace with your actual ECR repository name
+          IMAGE_TAG: latest
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          echo "pushed!"
+          echo "Pushed!"
   
   Continuous-Deployment:
     needs: build-and-push-erc-image
