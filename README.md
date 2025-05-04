@@ -1,3 +1,3 @@
 # END-TO-END Machine learning project
 
-AWS
+AWS Deployment
